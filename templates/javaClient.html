@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>TEST SOCKET-IO</title>
+
+    <script src="http://www.rodrigosanz.com/universidad/eeg/jspsych/jspsych.js"></script>
+    <script src="http://www.rodrigosanz.com/universidad/eeg/jspsych/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="http://www.rodrigosanz.com/universidad/eeg/jspsych/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="http://www.rodrigosanz.com/universidad/eeg/jspsych/plugins/jspsych-video-keyboard-response.js"></script>
+    <script src="http://www.rodrigosanz.com/universidad/eeg/jspsych/plugins/jspsych-animation.js"></script>   
+    <script src="http://www.rodrigosanz.com/universidad/eeg/jspsych/plugins/jspsych-fullscreen.js"></script>
+    <script src="http://www.rodrigosanz.com/universidad/eeg/jspsych/plugins/jspsych-call-function.js"></script>
+
+    <link rel="stylesheet" href="http://www.rodrigosanz.com/universidad/eeg/jspsych/css/jspsych.css"></link>
+    <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+
+    
+  </head>
+  <body id="container">
+
+    <!-- <h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
+    <div class="message_holder"></div>
+
+    <form action="" method="POST">
+      <input type="text" class="username" placeholder="User Name"/>
+      <input type="text" class="message" placeholder="Messages"/>
+      <input type="submit"/>
+    </form>
+
+
+    <input  type="submit"/> -->
+  
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript">
+      var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+      socket.on( 'connect', function() {
+        socket.emit( 'my event', {
+          data: 'User Connected'
+        } )
+
+
+        
+        /* $('.btn').mousedown( function( e ) {
+          var user_name = "JAVASCRIPT";
+          var user_input = "ESTE ES UN MENSAJE PARA ENVIAR";
+          console.log('click')
+          socket.emit( 'my event', {
+            user_name : user_name,
+            data : user_input
+          } )
+        });
+ */
+        /* var form = $( 'form' ).on( 'submit', function( e ) {
+          e.preventDefault()
+          let user_name = $( 'input.username' ).val()
+          let user_input = $( 'input.message' ).val()
+          socket.emit( 'my event', {
+            user_name : user_name,
+            message : user_input
+          } )
+          $( 'input.message' ).val( '' ).focus()
+        } ) */
+
+      });
+
+
+      socket.on( 'my response', function( msg ) {
+        console.log( msg )
+        if( typeof msg.user_name !== 'undefined' ) {
+          $( 'h3' ).remove()
+          $( 'div.message_holder' ).append( '<div><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</div>' )
+        }
+      })
+    </script>
+
+  </body>
+
+  </html>
+
+
+  <script>
+    
+    var positive_priming_set = [
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dog 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Lake 9.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Lake 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Beach 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fireworks 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Rainbow 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Lake 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Lake 15.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Rainbow 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Cat 5.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Penguins 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Lake 8.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dog 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Siblings 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dog 18.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Baby 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Lake 13.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fireworks 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Lake 10.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Baby 5.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Sunset 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Nature 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Lake 16.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Mother 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Sunset 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fireworks 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Baby 8.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Lake 7.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fireworks 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Mother 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Sunset 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Beach 7.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Galaxy 7.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Picnic 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Beach 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Mother 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Baby 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Mother 7.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Bird 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Father 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Baby 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Sunset 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Wedding 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Cat 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dog 21.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Mother 9.jpg'
+    ];
+    
+    var negative_priming_set = [
+        'http://www.rodrigosanz.com/universidad/eeg/images/Miserable pose 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dummy 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dead bodies 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dead bodies 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/KKK rally 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dog 26.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dead bodies 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/KKK rally 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/War 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Injury 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Tumor 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fire 9.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Garbage dump 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dirt 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Animal carcass 5.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Garbage dump 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Severed finger 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/War 8.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fire 5.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fire 7.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fire 11.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/War 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Scary face 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Explosion 5.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Destruction 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Bloody knife 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Car crash 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dog 24.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Destruction 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Shot 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Garbage dump 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fire 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Injury 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Injury 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Car accident 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Car crash 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Garbage dump 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Feces 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Destruction 7.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Destruction 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Jail 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Car accident 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Car crash 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Neonazi 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Plane crash 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Fire 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Garbage dump 8.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Cockroach 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Dog 31.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Injury 2.jpg'
+    ];
+    
+    var neutral_priming_set = [
+        'http://www.rodrigosanz.com/universidad/eeg/images/Wall 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Wall 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Wall 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Wall 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Wall 5.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Yarn 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Yarn 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Yarn 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Yarn 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Rocks 7.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Rocks 6.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Rocks 5.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Rocks 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Rocks 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Rocks 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Rocks 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Paperclips 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Paperclips 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Paperclips 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Paperclips 1.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Paper 5.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Paper 4.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Paper 3.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Paper 2.jpg',
+        'http://www.rodrigosanz.com/universidad/eeg/images/Paper 1.jpg',
+    ];
+    
+    var positive_stimuli_set = [];
+    for (var idx=1;idx<=140;idx++){
+        positive_stimuli_set.push('http://www.rodrigosanz.com/universidad/eeg/face_images/happy/'+idx+'.jpg')
+    }
+    
+    var negative_stimuli_set = [];
+    for (var idx=1;idx<=140;idx++){
+        negative_stimuli_set.push('http://www.rodrigosanz.com/universidad/eeg/face_images/afraid/'+idx+'.jpg')
+    }
+    
+    var neutral_stimuli_set = [];
+    for (var idx=1;idx<=140;idx++){
+        neutral_stimuli_set.push('http://www.rodrigosanz.com/universidad/eeg/face_images/surprised/'+idx+'.jpg');
+    }
+    
+    var angular_stimuli_set = [];
+    for (var idx=1;idx<=120;idx++){
+        angular_stimuli_set.push('http://www.rodrigosanz.com/universidad/eeg/shape_images/angular/'+idx+'.jpg');
+    }
+    
+    var rounded_stimuli_set = [];
+    for (var idx=1;idx<=116;idx++){
+        rounded_stimuli_set.push('http://www.rodrigosanz.com/universidad/eeg/shape_images/rounded/'+idx+'.jpg');
+    }
+    
+    var positive_state_set = [
+        {priming: positive_priming_set, stimuli:positive_stimuli_set},
+        {priming: positive_priming_set, stimuli:positive_stimuli_set},
+        {priming: positive_priming_set, stimuli:positive_stimuli_set},
+        {priming: positive_priming_set, stimuli:positive_stimuli_set},
+        {priming: positive_priming_set, stimuli:positive_stimuli_set},
+        //{priming: positive_priming_set, stimuli:positive_stimuli_set},
+        //{priming: positive_priming_set, stimuli:positive_stimuli_set},
+        //{priming: positive_priming_set, stimuli:positive_stimuli_set},
+        //{priming: positive_priming_set, stimuli:positive_stimuli_set},
+        //{priming: positive_priming_set, stimuli:positive_stimuli_set},
+        {priming: positive_priming_set, stimuli:negative_stimuli_set},
+        {priming: positive_priming_set, stimuli:negative_stimuli_set},
+        {priming: positive_priming_set, stimuli:negative_stimuli_set},
+        {priming: positive_priming_set, stimuli:negative_stimuli_set},
+        {priming: positive_priming_set, stimuli:negative_stimuli_set},
+        //{priming: positive_priming_set, stimuli:negative_stimuli_set},
+        //{priming: positive_priming_set, stimuli:negative_stimuli_set},
+        //{priming: positive_priming_set, stimuli:negative_stimuli_set},
+        //{priming: positive_priming_set, stimuli:negative_stimuli_set},
+        //{priming: positive_priming_set, stimuli:negative_stimuli_set},
+        //{priming: positive_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: positive_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: positive_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: positive_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: positive_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: positive_priming_set, stimuli:neutral_stimuli_set},
+    ];
+    
+    var negative_state_set = [
+        {priming: negative_priming_set, stimuli:positive_stimuli_set},
+        {priming: negative_priming_set, stimuli:positive_stimuli_set},
+        {priming: negative_priming_set, stimuli:positive_stimuli_set},
+        {priming: negative_priming_set, stimuli:positive_stimuli_set},
+        {priming: negative_priming_set, stimuli:positive_stimuli_set},
+        //{priming: negative_priming_set, stimuli:positive_stimuli_set},
+        //{priming: negative_priming_set, stimuli:positive_stimuli_set},
+        //{priming: negative_priming_set, stimuli:positive_stimuli_set},
+        //{priming: negative_priming_set, stimuli:positive_stimuli_set},
+        //{priming: negative_priming_set, stimuli:positive_stimuli_set},
+        {priming: negative_priming_set, stimuli:negative_stimuli_set},
+        {priming: negative_priming_set, stimuli:negative_stimuli_set},
+        {priming: negative_priming_set, stimuli:negative_stimuli_set},
+        {priming: negative_priming_set, stimuli:negative_stimuli_set},
+        {priming: negative_priming_set, stimuli:negative_stimuli_set},
+        //{priming: negative_priming_set, stimuli:negative_stimuli_set},
+        //{priming: negative_priming_set, stimuli:negative_stimuli_set},
+        //{priming: negative_priming_set, stimuli:negative_stimuli_set},
+        //{priming: negative_priming_set, stimuli:negative_stimuli_set},
+        //{priming: negative_priming_set, stimuli:negative_stimuli_set},
+        //{priming: negative_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: negative_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: negative_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: negative_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: negative_priming_set, stimuli:neutral_stimuli_set},
+        //{priming: negative_priming_set, stimuli:neutral_stimuli_set},
+    ];
+    
+    var neutral_state_set = [
+        {priming: neutral_priming_set, stimuli:positive_stimuli_set},
+        {priming: neutral_priming_set, stimuli:positive_stimuli_set},
+        {priming: neutral_priming_set, stimuli:negative_stimuli_set},
+        {priming: neutral_priming_set, stimuli:negative_stimuli_set},
+        {priming: neutral_priming_set, stimuli:negative_stimuli_set},
+        {priming: neutral_priming_set, stimuli:positive_stimuli_set},
+    ];
+    
+    var neutral_state_shapes_set = [
+        {priming: neutral_priming_set, stimuli:rounded_stimuli_set},
+        {priming: neutral_priming_set, stimuli:angular_stimuli_set},
+        {priming: neutral_priming_set, stimuli:angular_stimuli_set},
+        {priming: neutral_priming_set, stimuli:rounded_stimuli_set},
+        {priming: neutral_priming_set, stimuli:rounded_stimuli_set},
+        {priming: neutral_priming_set, stimuli:angular_stimuli_set},
+    ];
+    
+    var positive_state_shapes_set = [
+        {priming: positive_priming_set, stimuli:rounded_stimuli_set},
+        {priming: positive_priming_set, stimuli:rounded_stimuli_set},
+        {priming: positive_priming_set, stimuli:rounded_stimuli_set},
+        {priming: positive_priming_set, stimuli:rounded_stimuli_set},
+        {priming: positive_priming_set, stimuli:rounded_stimuli_set},
+        {priming: positive_priming_set, stimuli:angular_stimuli_set},
+        {priming: positive_priming_set, stimuli:angular_stimuli_set},
+        {priming: positive_priming_set, stimuli:angular_stimuli_set},
+        {priming: positive_priming_set, stimuli:angular_stimuli_set},
+        {priming: positive_priming_set, stimuli:angular_stimuli_set},
+    ];
+    
+    var negative_state_shapes_set = [
+        {priming: negative_priming_set, stimuli:rounded_stimuli_set},
+        {priming: negative_priming_set, stimuli:rounded_stimuli_set},
+        {priming: negative_priming_set, stimuli:rounded_stimuli_set},
+        {priming: negative_priming_set, stimuli:rounded_stimuli_set},
+        {priming: negative_priming_set, stimuli:rounded_stimuli_set},
+        {priming: negative_priming_set, stimuli:angular_stimuli_set},
+        {priming: negative_priming_set, stimuli:angular_stimuli_set},
+        {priming: negative_priming_set, stimuli:angular_stimuli_set},
+        {priming: negative_priming_set, stimuli:angular_stimuli_set},
+        {priming: negative_priming_set, stimuli:angular_stimuli_set},
+    ];
+    
+    
+    var fullscreen = {
+        type: 'fullscreen',
+        message: ' ',
+        button_label: 'Comenzar',
+        fullscreen_mode: true
+    };
+    
+    var instructions_1 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>En este experimento queremos estudiar cómo las emociones afectan los juicios de valor. Te vamos a mostrar imágenes y debes indicar si te parece que cada imagen está asociada a emociones positivas o a emociones negativas. Para responder usá las flechas del teclado: para emociones positivas la flecha hacia la derecha; para emociones negativas la flecha hacia la izquierda.</p><p><b>Presiona cualquier botón para continuar</b></p>',
+    };
+    
+    var instructions_2 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>Hagamos una prueba para practicar. El siguiente ejemplo pertence a las valencias positivas, haz click en la flecha que corresponde a las respuestas postivas.</p><div><img src="http://www.rodrigosanz.com/universidad/eeg/face_images/happy/1.jpg"></div>',
+        choices: [39],
+    };
+    
+    var instructions_3 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>¡Perfecto! El siguiente ejemplo pertence a las valencias negativas, haz click en la flecha que corresponde a las respuestas negativas.</p><div><img src="http://www.rodrigosanz.com/universidad/eeg/face_images/sad/1.jpg"></div>',
+        choices: [37],
+    };
+    
+    var instructions_4 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>¡Muy bien! Ahora vamos a hacer un ensayo en tiempo real. Las fotos van a aparecer y desaparecer rápidamente. Debes responder cuando veas el signo de interrogación que aparece abajo. ¡Pero tienes que ser muy rápido! Sólo tendrás un segundo para responder una vez que aparezca el signo de interrogación.</p><div><img src="http://www.rodrigosanz.com/universidad/eeg/images/Missing.png"></div><p>Recuerda apretar la flecha derecha para emociones positivas y la flecha izquierda para emociones negativas.</p><p><b>Presiona cualquier botón para empezar</b></p>'
+    };
+    
+    var instructions_5 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>A continuación haremos un último ensayo. Además de las imágenes de caras vas a ver otras imágenes. Debes mantener la vista fija en el centro de la pantalla y esperar por las imágenes de las caras; luego, cuando veas el signo de interrogación debes responder de acuerdo a la emoción que te inspira cada cara.</p><p><b>Presiona cualquier botón para comenzar el ensayo</b></p>'
+    };
+    
+    var instructions_6 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>Ahora sí vamos a empezar el experimento. Si te queda alguna duda éste es el momento para hacer preguntas.</p><p><b>Presiona cualquier botón para comenzar el experimento</b></p>'
+    };
+        
+    var instructions_shapes_1 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>En esta segunda parte del experimento queremos estudiar los juicios de valor para imágenes más abstractas usando formas geométricas. Primero vamos a hacer un ensayo para que veas cómo son las imágenes a las que debes prestar atención.</p><p>Recuerda apretar la flecha derecha si la imagen te inspira emociones positivas y la flecha izquierda si la imagen te inspira emociones negativas.</p><p><b>Presiona cualquier botón para empezar</b></p>'
+    };
+    
+    var instructions_shapes_2 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>A continuación, además de las formas geométricas, vas a ver las otras imagenes. Debes mantener la vista fija en el centro de la pantalla y esperar por las formas geométricas; luego cuando veas el signo de interrogación puedes responder.</p><p><b>Presiona cualquier botón para comenzar el ensayo</b></p>'
+    };
+    
+    var instructions_shapes_3 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>Ahora sí vamos a empezar la segunda parte del experimento. Si te queda alguna duda éste es el momento para hacer preguntas.</p><p><b>Presiona cualquier botón para comenzar el experimento</b></p>'
+    };
+    
+    var instructions_end = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>¡Muchas gracias por participar!</p><p><b>Presiona cualquier botón para terminar el experimento</b></p>'
+    };
+       
+    var pause = {
+        type: 'html-keyboard-response',
+        stimulus: ' ',
+        choices: jsPsych.NO_KEYS,
+        trial_duration:1000,
+    };
+    
+    var start_recording = {
+        type: 'call-function',
+        func: function(){
+            socket.emit( 'my event', {
+            data : "start recording" } )
+        },
+    }
+    
+    var end_recording = {
+        type: 'call-function',
+        func: function(){
+            socket.emit( 'my event', {
+            data : "end recording" } )
+        },
+    }
+    
+    var priming_animation = {
+        type: 'animation',
+        stimuli: function() {
+            var priming_set = jsPsych.timelineVariable('priming',true);
+            var number_of_stimuli = Math.floor(3 + Math.random()*3);
+            var stimuli = [];
+            for (var idx=0;idx<number_of_stimuli;idx++){
+                stimuli.push(priming_set[Math.floor(Math.random() * priming_set.length)]);    
+            }
+            return stimuli
+        },
+        frame_time: 200,
+        sequence_reps: 1,
+        choies: jsPsych.NO_KEYS,
+    };
+
+    var stimulus = {
+        type: 'image-keyboard-response',
+        stimulus: function() {
+            var stimuli_set = jsPsych.timelineVariable('stimuli',true);
+            return stimuli_set[Math.floor(Math.random() * stimuli_set.length)];
+        },
+        choices: jsPsych.NO_KEYS,
+        trial_duration: 200,
+        response_ends_trial: false,
+    };
+    
+    var response = {
+        type: 'image-keyboard-response',
+        stimulus: 'http://www.rodrigosanz.com/universidad/eeg/images/Missing.png',
+        stimulus_height: 320,
+        choices: [37,39],
+        trial_duration: 1000,
+        post_trial_gap: 2000,
+        response_ends_trial: true,
+        on_finish: function(data) {
+            data.test_part ='test';
+            data.priming = jsPsych.timelineVariable('priming',true);
+            data.stimulus = jsPsych.timelineVariable('stimuli',true);
+        },
+    };
+    
+    var rest_long = {
+        type: 'html-keyboard-response',
+        stimulus: 'Toma un descanso de 1 minuto antes de continuar.',
+        choices: jsPsych.NO_KEYS,
+        trial_duration: 60000,
+    };
+    
+    var rest_short = {
+        type: 'html-keyboard-response',
+        stimulus: 'Buen trabajo. Descansa durante 30 segundos antes de comenzar el próximo bloque.',
+        choices: jsPsych.NO_KEYS,
+        trial_duration: 30000,
+    };
+    
+    var check = {
+        type: 'html-keyboard-response',
+        stimulus: 'Presiona cualquier tecla para continuar',
+    };
+    
+    var test_procedure = {
+        timeline: [stimulus, response],
+        timeline_variables: [
+            {stimuli: positive_stimuli_set},
+            {stimuli: positive_stimuli_set},
+            {stimuli: negative_stimuli_set},
+            {stimuli: negative_stimuli_set},
+        ]
+    }
+    
+    var test_shapes_procedure = {
+        timeline: [stimulus, response],
+        timeline_variables: [
+            {stimuli: angular_stimuli_set},
+            {stimuli: angular_stimuli_set},
+            {stimuli: rounded_stimuli_set},
+            {stimuli: rounded_stimuli_set},
+        ]
+    }
+    
+    var positive_state_procedure = {
+        timeline: [priming_animation, stimulus, priming_animation, response],
+        timeline_variables: positive_state_set,
+        sample: {
+            type: 'without-replacement',
+            size: 10,
+        },
+    };
+    
+    var negative_state_procedure = {
+        timeline: [priming_animation, stimulus, priming_animation, response],
+        timeline_variables: negative_state_set,
+        sample: {
+            type: 'without-replacement',
+            size: 10,
+        },
+    };
+    
+    var neutral_state_procedure = {
+        timeline: [priming_animation, stimulus, priming_animation, response],
+        timeline_variables: neutral_state_set,
+    };
+    
+    var positive_state_shapes_procedure = {
+        timeline: [priming_animation, stimulus, priming_animation, response],
+        timeline_variables: positive_state_shapes_set,
+        sample: {
+            type: 'without-replacement',
+            size: 10,
+        },
+    };
+    
+    var negative_state_shapes_procedure = {
+        timeline: [priming_animation, stimulus, priming_animation, response],
+        timeline_variables: negative_state_shapes_set,
+        sample: {
+            type: 'without-replacement',
+            size: 10,
+        },
+    };
+    
+    var neutral_state_shapes_procedure = {
+        timeline: [priming_animation, stimulus, priming_animation, response],
+        timeline_variables: neutral_state_shapes_set,
+    };
+    
+    var timeline = [fullscreen, 
+                    instructions_1, instructions_2, instructions_3, instructions_4, pause, 
+                    test_procedure, instructions_5, pause,
+                    neutral_state_procedure, instructions_6, pause,
+                    start_recording, positive_state_procedure, end_recording, rest_short, check, pause,
+                    start_recording, negative_state_procedure, end_recording, rest_short, check, pause,
+                    start_recording, positive_state_procedure, end_recording, rest_short, check, pause,
+                    start_recording, negative_state_procedure, end_recording, rest_short, check, pause,
+                    start_recording, negative_state_procedure, end_recording, rest_short, check, pause,
+                    start_recording, positive_state_procedure, end_recording, rest_long, check,
+                    instructions_shapes_1, pause, test_shapes_procedure, instructions_shapes_2, pause,
+                    neutral_state_shapes_procedure, instructions_shapes_3, pause,
+                    start_recording, positive_state_shapes_procedure, end_recording, rest_short, check, pause,
+                    start_recording, negative_state_shapes_procedure, end_recording, rest_short, check, pause,
+                    start_recording, negative_state_shapes_procedure, end_recording, rest_short, check, pause,
+                    start_recording, positive_state_shapes_procedure, end_recording, rest_short, check, pause,
+                    start_recording, negative_state_shapes_procedure, end_recording, rest_short, check, pause,
+                    start_recording, positive_state_shapes_procedure, end_recording, instructions_end,
+                   ];
+    
+
+    var images = ['http://www.rodrigosanz.com/universidad/eeg/images/Missing.png', 'http://www.rodrigosanz.com/universidad/eeg/face_images/sad/1.jpg'];
+    images = images.concat(positive_priming_set);
+    images = images.concat(negative_priming_set);
+    images = images.concat(neutral_priming_set);
+    images = images.concat(positive_stimuli_set);
+    images = images.concat(negative_stimuli_set);
+    images = images.concat(neutral_stimuli_set);
+    images = images.concat(angular_stimuli_set);
+    images = images.concat(rounded_stimuli_set);
+
+    jsPsych.init({
+        timeline: timeline,
+        on_finish: function() {
+            jsPsych.data.get().localSave('csv','jspsych_data.csv')
+        },
+            default_iti: 200,
+        preload_images: images,
+    });
+    
+</script>
+
+
+
+
+
+<script>
+
+    // BOTÓN TEST para probar grabar CSV
+
+   /*  var button = document.createElement('button');
+    button.type = 'button';
+    button.innerHTML = 'Press START';
+    button.className = 'btnSTART';
+
+    var button2 = document.createElement('button');
+    button2.type = 'button2';
+    button2.innerHTML = 'Press END';
+    button2.className = 'btnEND';
+
+    button2.onclick = function() {
+        socket.emit( 'my event', {
+            data : "end recording" } )
+    };
+
+    button.onclick = function() {
+        socket.emit( 'my event', {
+            data : "start recording" } )
+    };
+
+    var container = document.getElementById('container');
+    container.appendChild(button);
+    container.appendChild(button2); */
+
+</script>
