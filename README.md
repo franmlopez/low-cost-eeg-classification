@@ -17,7 +17,7 @@ The project...
 
 ### Prerequisites
 
-The project uses Python3 and all of the dependencies are listed in requirments.txt in the BCI folder. 
+The project uses Python3 and all of the dependencies are listed in requirments.txt. 
 Run "pip install -r requirements.txt" within the folder.
 
 ## Contributing
@@ -29,11 +29,11 @@ Run "pip install -r requirements.txt" within the folder.
 
 ## License
 
-This project is licensed under the Apache 2 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the OPEN License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgements
 
-* [Tim](https:///) for supervising the project and providing endless help and ideas
+* [XXX](https:///) for supervising the project
 
 ## Disclaimer
-The designs for the EEG hardware and software shown in this repository have not been tested to comply with any medical device standards such as IEC 601. Therefore, any user which builds or uses the designs from this repository does so at their own risk. 
+. 
