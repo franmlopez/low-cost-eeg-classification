@@ -1,10 +1,8 @@
 
 # Low Cost EEG Emotions Classification
 
-The project uses a EEG from the user to control a simplified keyboard using steady state visually evoked potentials.
+The project...
 
-On start-up, the user should stare at one of the checker boxes to record a baseline EEG. Once the checkerboxes start flashing, the user can start making selections. There are five flashing checkerboxes, each flashing at a different frequency. Each box also has some comma separated options above them, which can be selected
-By the user looking and concentrating on it. The box will be highlighted and the options sub-divided between the checker boxes. This repeats until a single option is selected. If the option is a letter/number it will be displayed in the text box.
 
 ## Getting Started
 
